@@ -30,9 +30,9 @@ class Winform(QWidget):
         self.clear_btn = QPushButton(self)
         self.show_btn = QPushButton(self)
 
-        self.flower1_btn = QRadioButton("黄色花朵", self)
-        self.flower2_btn = QRadioButton("紫色花朵", self)
-        self.flower3_btn = QRadioButton("白色花朵", self)
+        self.flower1_btn = QRadioButton("yellow", self)
+        self.flower2_btn = QRadioButton("purple", self)
+        self.flower3_btn = QRadioButton("white", self)
 
         self.lab = QLabel()
         self.init_view()
@@ -46,12 +46,12 @@ class Winform(QWidget):
         self.resize(1200, 700)
         self.pix = QPixmap(path)
 
-        self.clear_btn.setText("清空画布")
+        self.clear_btn.setText("clear")
         self.clear_btn.resize(100, 30)
         self.clear_btn.move(1050, 100)
         self.clear_btn.clicked.connect(self.clear_canvas)
 
-        self.show_btn.setText("显示结果")
+        self.show_btn.setText("result")
         self.show_btn.resize(100, 30)
         self.show_btn.move(1050, 150)
         self.show_btn.clicked.connect(self.show_picture)
@@ -83,7 +83,7 @@ class Winform(QWidget):
 
     def show_picture(self):
         cv2.imwrite(res_path, self.im)
-        cv2.imshow("拼图结果", self.im)
+        cv2.imshow("result", self.im)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
